@@ -14,7 +14,7 @@ engine:
   copilot-sdk: true
 tools:
   edit:
-  web-fetch:
+  bash: ["curl:*"]
   github:
     toolsets: [repos]
 network:
@@ -32,8 +32,13 @@ safe-outputs:
 # Update GitHub Info
 
 Read `notes/mona-notes.md` and `site/content/github-info.md` through GitHub
-repository API tools. Do not use shell commands to read repository files. Use
-web fetch to read all three sources:
+repository API tools. Do not use shell commands to read repository files.
+Native web_fetch is unavailable in Copilot SDK API Proxy mode. Use the
+configured shell curl tool to retrieve the three official sources, using
+`curl -fsSL --max-time 30` with the exact HTTPS URLs below. Network access
+must remain restricted to the configured allowlist; do not use proxies,
+redirects to unapproved hosts, or any workaround for denied requests.
+If curl is unavailable or denied, report the task as incomplete. Sources:
 
 - https://github.blog/latest/
 - https://github.blog/changelog/
