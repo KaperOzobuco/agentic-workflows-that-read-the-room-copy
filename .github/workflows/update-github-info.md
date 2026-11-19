@@ -21,6 +21,7 @@ network:
   allowed:
     - github.blog
     - github.com
+    - awesome-copilot.github.com
 safe-outputs:
   create-pull-request:
     allowed-files:
@@ -31,15 +32,19 @@ safe-outputs:
 # Update GitHub Info
 
 Read `notes/mona-notes.md` and `site/content/github-info.md` through GitHub
-repository API tools. Do not use shell commands to read repository files. Fetch
-both https://github.blog/latest/ and https://github.blog/changelog/ using web
-fetch.
+repository API tools. Do not use shell commands to read repository files. Use
+web fetch to read all three sources:
 
-Find recent, useful updates that fit Mona's practical developer focus and
-existing homepage themes. Verify every proposed detail against the fetched
-official sources; do not invent facts or make unsupported claims. Keep the
-page concise, preserve its existing structure and tone, and cite the relevant
-GitHub Blog or Changelog source for each new update.
+- https://github.blog/latest/
+- https://github.blog/changelog/
+- https://awesome-copilot.github.com/workflows/
+
+Find recent, useful updates from GitHub Blog, GitHub Changelog, and Awesome
+Copilot workflows that fit Mona's practical developer focus and existing
+homepage themes. Verify every proposed detail against the fetched sources; do
+not invent facts or make unsupported claims. Keep the page concise, preserve
+its existing structure and tone, and cite the relevant source for each new
+update.
 
 Edit only `site/content/github-info.md`. If a source cannot be fetched or the
 evidence is insufficient, do not guess; report the task as incomplete. If there
